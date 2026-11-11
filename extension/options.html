@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>口语化润色 · 设置</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <h1>口语化润色 · 设置</h1>
+        <nav class="tabs" role="tablist">
+          <button type="button" class="tab is-active" data-tab="api" role="tab">API 设置</button>
+          <button type="button" class="tab" data-tab="skills" role="tab">技能管理</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- ========== API 设置 ========== -->
+      <section id="tab-api" class="tab-panel">
+        <p class="desc">三家大模型任选，填好其中一家的 API Key 就能用。默认模型优先响应速度，适合润色、改写和翻译。</p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-head">
+              <h2>Claude</h2>
+              <span class="badge">Anthropic</span>
+            </div>
+            <label>
+              API Key
+              <input id="anthropicKey" type="password" autocomplete="off" placeholder="sk-ant-...">
+            </label>
+            <label>
+              模型
+              <input id="anthropicModel" type="text" spellcheck="false">
+            </label>
+            <label class="default-pick">
+              <input type="radio" name="provider" value="anthropic">
+              设为默认模型
+            </label>
+            <p class="hint">获取 Key：console.anthropic.com</p>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2>ChatGPT</h2>
+              <span class="badge">OpenAI</span>
+            </div>
+            <label>
+              API Key
+              <input id="openaiKey" type="password" autocomplete="off" placeholder="sk-...">
+            </label>
+            <label>
+              模型
+              <input id="openaiModel" type="text" spellcheck="false">
+            </label>
+            <label class="default-pick">
+              <input type="radio" name="provider" value="openai">
+              设为默认模型
+            </label>
+            <p class="hint">获取 Key：platform.openai.com</p>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h2>DeepSeek</h2>
+              <span class="badge">深度求索</span>
+            </div>
+            <label>
+              API Key
+              <input id="deepseekKey" type="password" autocomplete="off" placeholder="sk-...">
+            </label>
+            <label>
+              模型
+              <input id="deepseekModel" type="text" spellcheck="false">
+            </label>
+            <label class="default-pick">
+              <input type="radio" name="provider" value="deepseek">
+              设为默认模型
+            </label>
+            <p class="hint">获取 Key：platform.deepseek.com</p>
+          </article>
+        </div>
+
+        <div class="actions">
+          <button id="useFastModels" class="secondary" type="button">填入快速默认</button>
+          <button id="useStrongModels" class="secondary" type="button">填入最强模型</button>
+          <button id="saveApi" type="button">保存 API 设置</button>
+          <span id="apiStatus" role="status"></span>
+        </div>
+      </section>
+
+      <!-- ========== 技能管理 ========== -->
+      <section id="tab-skills" class="tab-panel" hidden>
+        <p class="desc">技能就是一段「怎么改写」的指令。添加后，在网页选中文字弹出的面板里就能切换使用。</p>
+
+        <div class="cards" id="skillCards"></div>
+
+        <article class="card add-skill">
+          <div class="card-head">
+            <h2>添加新技能</h2>
+          </div>
+          <label>
+            技能名称
+            <input id="skillName" type="text" placeholder="例如：转正式邮件腔">
+          </label>
+          <label>
+            技能指令（告诉模型怎么改写）
+            <textarea id="skillInstructions" rows="5" placeholder="例如：把文字改写成礼貌、简洁的正式商务邮件，保留全部事实，称呼用「您」。"></textarea>
+          </label>
+          <div class="actions">
+            <button id="addSkill" type="button">添加技能</button>
+            <span id="skillStatus" role="status"></span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="polish-core.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

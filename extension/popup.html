@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>口语化润色</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <h1>口语化润色</h1>
+
+      <ul id="providerStatus" class="provider-status" aria-label="API 配置状态"></ul>
+
+      <div class="nav-buttons">
+        <button id="openApi" type="button">API 设置</button>
+        <button id="openSkills" type="button">技能管理</button>
+      </div>
+
+      <p class="hint">在网页里选中一段文字，下方会弹出润色工具条。</p>
+    </main>
+    <script src="polish-core.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
